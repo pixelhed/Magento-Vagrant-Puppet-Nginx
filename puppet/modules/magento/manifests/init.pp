@@ -4,7 +4,7 @@ class magento(
   $install_sample_data = true
 ) {
 
-    host { "magento.local":
+    host { "magento.dev":
         ip => "127.0.0.1"
     }
 
@@ -18,4 +18,12 @@ class magento(
       magento_version     => $magento_version,
       install_sample_data => $install_sample_data
     }
-}
+
+    class {
+      'redis' : 
+    }      
+    redis::instance { 
+      'redis-6900':
+      redis_port  => '6900'
+    }
+  }

@@ -1,8 +1,8 @@
 class magento::nginx {
     include ::nginx
-    ::nginx::resource::vhost { 'magento.local':
+    ::nginx::resource::vhost { 'magento.dev':
         ensure           => present,
-        www_root         => '/vagrant_data',
+        www_root         => '/vagrant_data/htdocs',
         location_options => { try_files => "try_files \$uri \$uri/ @handler" },
         locations => {
             1 => { location => "^~ /app/",                options => [ "deny all" ] },
