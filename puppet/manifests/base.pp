@@ -4,7 +4,8 @@ node default {
         location => "http://repos.servergrove.com/servergrove-ubuntu-precise",
         release => 'precise',
         repos => 'main',
-        key_source => 'http://repos.servergrove.com/servergrove-ubuntu-precise/servergrove-ubuntu-precise.gpg.key'
+        key_source => 'http://repos.servergrove.com/servergrove-ubuntu-precise/servergrove-ubuntu-precise.gpg.key',
+        include_src => false
     }
 
     class { "apt":
